@@ -84,8 +84,8 @@ function rotateString() {
 }
 
 function animate_string(id) {
-    const element = document.getElementById(id)
-    const textNode = element.childNodes[0]
+    const element = document.getElementById(id) // get the element with that id
+    const textNode = element.childNodes[0] // 
     let text = textNode.data
 
     setInterval(() => { //embedded function in function setinterval, setinterval calls the function with 100 milliseconds gap.
