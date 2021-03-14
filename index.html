@@ -7,9 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaScript basic - Exercises, Practice, Solutiont</title>
     <link rel="shortcut icon" href="#"> \\ Prevent 404 Error
+    <link rel="stylesheet" href="/style.css">
 </head>
 
-<body onload="animate_string('target')">
+<body>
     <h1>Excercises</h1>
     <h2 id="h2e">Excerise 1</h2>
     <p id="e1"></p>
@@ -17,6 +18,41 @@
 
     <pre id="target">w3resource</pre>
 
+    <form>
+        <label for="userguessnumber">Please guess a number between 0 and 10</label><br>
+        <input type="number" id="userguessnumber" min="1" max="10"><br>
+    </form>
+    <button onclick="guessGame(document.getElementById('userguessnumber').value)">Did I win?</button>
+
+
+    <!-- Exercise 10 -->
+    <h3>Exercise 10</h3>
+
+    <div id="calculator">
+        <form>
+            <label for="num1">1stNumber</label><br>
+            <input type="number" id="num1"><br>
+            <label for="num2">2ndNumber</label><br>
+            <input type="number" id="num2"><br>
+        </form>
+        <button onclick="multiply()">Multiply</button>
+        <button onclick="divide()">Divide</button><br>
+        <span>The Result is:</span><br>
+        <span id="result"></span>
+    </div>
+
+    <!-- Exerise 12 -->
+    <h3>Exercise 12</h3>
+    <p id="URL"></p>
+
+
+    <!-- Exercise 13 -->
+
+    <h3>Exercise 13</h3>
+    <label for="userVar">Varname please</label><br>
+    <input type="text" id="userVar">
+    <span id="result13"></span><br>
+    <button onclick="userdefinedVariable()">Create Variable</button><br>
 
 
     <script src="index.js"></script>
