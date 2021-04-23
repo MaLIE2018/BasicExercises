@@ -195,7 +195,7 @@ const getWebsiteURL = () => {
     document.getElementById("URL").innerHTML = "URL of this page " + window.location.href
 }
 
-getWebsiteURL()
+
 
 /* 13. Write a JavaScript exercise to create a variable using a user-defined name */
 
@@ -208,3 +208,58 @@ const userdefinedVariable = () => {
     console.log(this[userVar])
 
 }
+
+
+// 14. Write a JavaScript exercise to get the extension of a filename
+
+
+const getExtension = (filename) => {
+    return filename.split(".")[1]
+}
+
+//15. Write a JavaScript program to get the difference between a given number 
+//and 13, if the number is greater than 13 return double the absolute difference.
+
+const getDifference = (num) => num > 13 ? Math.abs(num - 13) * 2 : Math.abs(num - 13)
+
+//23. Write a JavaScript program to create a new string from a given string 
+//changing the position of first and last characters. 
+//The string length must be greater than or equal to 1
+
+
+const swapfirstandlast = (str) => {
+    if (str.length > 1) {
+        return str.slice(-1) + str.slice(1, str.length - 1) + str.charAt(0)
+    } else {
+        return str
+    }
+}
+
+//24. Write a JavaScript program to create a new string from a given 
+//string with the first character of the given string added at the front and back.
+
+const newString = (str) => {
+    return str.charAt(0) + str + str.charAt(str.length - 1)
+}
+
+
+/*30. Write a JavaScript program to check whether a string "Script" presents 
+t 5th (index 4) position in a given string, if "Script" presents in the 
+string return the string without "Script" otherwise return the original one */
+
+
+const cutScript = (str) => {
+    return str.indexOf("Script") === 4 ? str.replace("Script", "") : str
+}
+
+/*35. Write a program to check whether a 
+specified character exists within the 2nd to 4th position in a given string. */
+
+// He[llo]Strive 
+const CharExist2and4 = (str) => {
+    let char = "o"
+    return str.slice(2, 5).includes(char) ? true : false
+
+}
+
+console.log(CharExist2and4("HelloStrive"))
