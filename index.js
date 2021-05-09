@@ -227,7 +227,7 @@ const getDifference = (num) => num > 13 ? Math.abs(num - 13) * 2 : Math.abs(num 
 //The string length must be greater than or equal to 1
 
 
-const swapfirstandlast = (str) => {
+const swapFirstAndLast = (str) => {
     if (str.length > 1) {
         return str.slice(-1) + str.slice(1, str.length - 1) + str.charAt(0)
     } else {
@@ -255,11 +255,96 @@ const cutScript = (str) => {
 /*35. Write a program to check whether a 
 specified character exists within the 2nd to 4th position in a given string. */
 
+
 // He[llo]Strive 
-const CharExist2and4 = (str) => {
+const charExist2and4 = (str) => {
     let char = "o"
     return str.slice(2, 5).includes(char) ? true : false
 
 }
 
-console.log(CharExist2and4("HelloStrive"))
+// console.log(charExist2and4("HelloStrive"))
+
+
+// 36. Write a JavaScript program to create a function that invokes each 
+//provided function with the arguments it receives and returns the results.
+
+const parentFunction = (...fns) => (...args) => fns.map(fn => fn.apply(null,args))
+
+
+const minMax = parentFunction(Math.min,Math.max)
+
+
+const name = (...args) => {
+    console.log(args)
+    
+}
+
+
+
+/*37. Write a JavaScript program to get a sorted array of objects ordered by properties and orders.  */
+
+
+let arrOfObjects = [{name:"Anton", age: 15}, {name:"John", age: 25},{name:"Anna", age: 45},{name:"Martha", age: 7}]
+
+const sortedObjects = (arr, prop,orders) => {
+    return arr.sort((a,b)=>{
+        if(a[prop] > b[prop]){
+            return -1
+        } else if (a[prop] < b[prop]){
+            return 1
+        } else{
+            return 0
+        }
+    })
+    ñ
+}
+
+// console.log(sortedObjects(arrOfObjects,"name"))
+
+
+const orderBy = (arr, props, orders) =>
+  [...arr].sort((a, b) =>
+    props.reduce((acc, prop, i) => {
+     console.log(a,b )
+      if (acc === 0) {
+        const [p1, p2] = orders && orders[i] === 'desc' ? [b[prop], a[prop]] : [a[prop], b[prop]];
+        acc = p1 > p2 ? 1 : p1 < p2 ? -1 : 0;
+        console.log("acc",acc,i,prop, orders, orders[i] )
+      }
+      console.log("acc",acc,i,prop, orders, orders[i] )
+      return acc;
+    }, 0)
+  );
+
+// console.log(orderBy(arrOfObjects, ['name', 'age'], ['asc', 'desc'])); 
+// console.log(orderBy(arrOfObjects, ['name', 'age']));
+
+
+/*38. Write a JavaScript program to pad a string on both sides with the specified character, 
+if it's shorter than the specified length */
+
+
+const padString = (s,length,char = '') => {
+    let res = ""
+    if (s.length < length){  /*Creative, but I don't need 
+    to calculate the number of the chars in the beginning and in the end, since padEnd and padStart receiving a
+    as a first parameter the length of the new string*/
+        let start = 0;
+        let end = 0
+        let diff = Math.abs(s.length - length)
+        if (diff% 2 === 0){
+            start = end = diff/2
+        } else{
+            start = (diff - 1) / 2
+            end = start + 1
+        }
+       
+       res = s.padStart((s.length+length)/2, char).padEnd(length, char)
+    } else{
+        return s
+    }
+    return res
+}
+
+console.log(padString("Strive", 11, ":"))
