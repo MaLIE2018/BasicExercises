@@ -347,4 +347,42 @@ const padString = (s,length,char = '') => {
     return res
 }
 
-console.log(padString("Strive", 11, ":"))
+// console.log(padString("Strive", 11, ":"))
+
+
+/*39. Write a JavaScript program to remove the key-value pairs corresponding to the given keys from an object.*/
+
+const obj1 = { 
+    name: "John", 
+    surname: "Lennon",
+    age: 30,
+}
+
+const obj2 = { a: 1, b: '2', c: 3, d: 4 }
+
+const removeKeyValuePair = (obj, keys) => {
+    const candidatesToRemove = Object.keys(obj)
+    .filter(key => keys.includes(key))
+
+    for (const key of candidatesToRemove) {
+        delete obj[key] 
+    }
+    return candidatesToRemove
+}
+
+
+// removeKeyValuePair(obj1,["name"])
+// console.log(obj1)
+// removeKeyValuePair(obj2,["b"])
+// console.log(obj2)
+
+
+/*40. Write a JavaScript program to 
+create an array of key-value pair arrays 
+from a given object. */
+
+const createArrayOfKeyValuePairArrays = (obj) => {
+    return Object.keys(obj).reduce((acc, key) => [...acc,acc.push([key, obj[key]])],[])
+}
+
+console.log(createArrayOfKeyValuePairArrays(obj2))
