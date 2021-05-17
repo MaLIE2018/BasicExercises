@@ -382,7 +382,10 @@ create an array of key-value pair arrays
 from a given object. */
 
 const createArrayOfKeyValuePairArrays = (obj) => {
-    return Object.keys(obj).reduce((acc, key) => [...acc,acc.push([key, obj[key]])],[])
+    return Object.keys(obj).reduce((acc, key) => {
+        [...acc, acc.push([key, obj[key]])]
+        return acc
+        },[])
 }
 
 console.log(createArrayOfKeyValuePairArrays(obj2))
